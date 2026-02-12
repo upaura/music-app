@@ -24,8 +24,8 @@ if (isLocalhost) {
     API_BASE = 'http://localhost:8080/api';
     // Will auto-switch to Python if PHP fails health check
 } else {
-    // Production: use relative path (PHP API)
-    API_BASE = '/api';
+// Production: use Render backend URL
+    API_BASE = 'https://music-app-5p9w.onrender.com/api';
 }
 
 // Auto-detect backend type and set correct URL
