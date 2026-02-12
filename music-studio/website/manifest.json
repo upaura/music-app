@@ -1,0 +1,59 @@
+{
+  "name": "UPAURA Music Studio",
+  "short_name": "Music Studio",
+  "description": "Create, analyze, and collaborate on music with AI-powered tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236366f1' rx='20' width='100' height='100'/><text y='.9em' x='50' text-anchor='middle' font-size='70'>🎵</text></svg>",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%236366f1' rx='20' width='100' height='100'/><text y='.9em' x='50' text-anchor='middle' font-size='70'>🎵</text></svg>",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["music", "entertainment", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Upload Music",
+      "short_name": "Upload",
+      "description": "Upload a new song",
+      "url": "/?page=upload",
+      "icons": []
+    },
+    {
+      "name": "Analyze Audio",
+      "short_name": "Analyze",
+      "description": "Analyze song details",
+      "url": "/?page=analyze",
+      "icons": []
+    },
+    {
+      "name": "Beat Lab",
+      "short_name": "Beats",
+      "description": "Create beat patterns",
+      "url": "/?page=game",
+      "icons": []
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
+

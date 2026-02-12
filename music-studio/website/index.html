@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>UPAURA Music Studio | Create, Analyze & Collaborate on Music</title>
+    <meta name="title" content="UPAURA Music Studio | Create, Analyze & Collaborate on Music">
+    <meta name="description" content="The ultimate music production suite powered by AI. Upload audio files, analyze tempo and key, collaborate with artists worldwide, and create beat patterns.">
+    <meta name="keywords" content="music studio, audio analysis, music collaboration, beat maker, music production, tempo detection, music key detection, AI music tools">
+    <meta name="author" content="upaura">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://upaura-music-studio.com/">
+    <meta property="og:title" content="UPAURA Music Studio">
+    <meta property="og:description" content="Create, analyze, and collaborate on music with AI-powered tools">
+    <meta property="og:image" content="https://upaura-music-studio.com/og-image.jpg">
+    <meta property="og:site_name" content="UPAURA Music Studio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://upaura-music-studio.com/">
+    <meta name="twitter:title" content="UPAURA Music Studio">
+    <meta name="twitter:description" content="Create, analyze, and collaborate on music with AI-powered tools">
+    <meta name="twitter:image" content="https://upaura-music-studio.com/og-image.jpg">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Performance Hints -->
+    <link rel="preload" href="app.js" as="script">
+    <link rel="preload" href="styles.css" as="style">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" onclick="showPage('home'); return false;">
+                <span class="brand-icon" aria-hidden="true">⬡</span>
+                <span class="brand-text">UPAURA<span class="brand-accent">STUDIO</span></span>
+            </a>
+            <div class="nav-links" id="navLinks" role="menubar">
+                <a href="#" class="nav-link active" data-page="home" onclick="showPage('home'); return false;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">◆</span> Home
+                </a>
+                <a href="#" class="nav-link auth-only" data-page="upload" onclick="showPage('upload'); return false;" style="display:none;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">↑</span> Upload
+                </a>
+                <a href="#" class="nav-link auth-only" data-page="analyze" onclick="showPage('analyze'); return false;" style="display:none;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">◈</span> Analyze
+                </a>
+                <a href="#" class="nav-link auth-only" data-page="collaborate" onclick="showPage('collaborate'); return false;" style="display:none;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">◎</span> Collaborate
+                </a>
+                <a href="#" class="nav-link auth-only" data-page="game" onclick="showPage('game'); return false;" style="display:none;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">◉</span> Beat Lab
+                </a>
+                <a href="#" class="nav-link guest-only" data-page="login" onclick="showPage('login'); return false;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">→</span> Login
+                </a>
+                <a href="#" class="nav-link guest-only" data-page="register" onclick="showPage('register'); return false;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">+</span> Join
+                </a>
+                <a href="#" class="nav-link auth-only" onclick="logout(); return false;" style="display:none;" role="menuitem">
+                    <span class="link-icon" aria-hidden="true">×</span> Logout
+                </a>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Home Page -->
+        <section id="page-home" class="page active" aria-labelledby="hero-title">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge" aria-label="Badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        Next-Gen Music Platform
+                    </div>
+                    <h1 class="hero-title" id="hero-title">
+                        Create. Analyze.<br>
+                        <span class="gradient-text">Collaborate.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        The ultimate music production suite powered by AI. 
+                        Upload, analyze, and create with artists worldwide.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-glow" onclick="showPage('register'); return false;" aria-label="Get started with UPAURA Music Studio">
+                            <span>Start Creating</span>
+                            <span class="btn-arrow" aria-hidden="true">→</span>
+                        </button>
+                        <button class="btn btn-glass" onclick="showPage('login'); return false;" aria-label="Sign in to your account">
+                            Sign In
+                        </button>
+                    </div>
+                    <div class="hero-stats" role="region" aria-label="Statistics">
+                        <div class="stat">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Core Features</span>
+                        </div>
+                        <div class="stat-divider" aria-hidden="true"></div>
+                        <div class="stat">
+                            <span class="stat-value">∞</span>
+                            <span class="stat-label">Possibilities</span>
+                        </div>
+                        <div class="stat-divider" aria-hidden="true"></div>
+                        <div class="stat">
+                            <span class="stat-value">1</span>
+                            <span class="stat-label">Creator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="visual-glow"></div>
+                        <div class="visual-content">
+                            <div class="visual-icon" aria-hidden="true">♫</div>
+                            <div class="visual-wave" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section" role="region" aria-label="Features">
+                <div class="section-header">
+                    <span class="section-tag">Capabilities</span>
+                    <h2 class="section-title">Everything You Need</h2>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card" onclick="showPage('upload'); return false;" tabindex="0" role="button" aria-label="Learn more about Smart Upload">
+                        <div class="feature-glow"></div>
+                        <div class="feature-icon" aria-hidden="true">↑</div>
+                        <h3>Smart Upload</h3>
+                        <p>Drop any audio format. AI organizes your library instantly.</p>
+                        <span class="feature-link">Learn more →</span>
+                    </article>
+                    <article class="feature-card" onclick="showPage('analyze'); return false;" tabindex="0" role="button" aria-label="Learn more about Audio Analysis">
+                        <div class="feature-glow"></div>
+                        <div class="feature-icon" aria-hidden="true">◈</div>
+                        <h3>Audio Analysis</h3>
+                        <p>Get precise tempo, key, and waveform analysis in seconds.</p>
+                        <span class="feature-link">Learn more →</span>
+                    </article>
+                    <article class="feature-card" onclick="showPage('collaborate'); return false;" tabindex="0" role="button" aria-label="Learn more about Real-time Collaboration">
+                        <div class="feature-glow"></div>
+                        <div class="feature-icon" aria-hidden="true">◎</div>
+                        <h3>Real-time Collab</h3>
+                        <p>Work with artists worldwide on the same track, in real-time.</p>
+                        <span class="feature-link">Learn more →</span>
+                    </article>
+                    <article class="feature-card" onclick="showPage('game'); return false;" tabindex="0" role="button" aria-label="Learn more about Beat Lab">
+                        <div class="feature-glow"></div>
+                        <div class="feature-icon" aria-hidden="true">◉</div>
+                        <h3>Beat Lab</h3>
+                        <p>Create patterns, save them, and build your signature sound.</p>
+                        <span class="feature-link">Learn more →</span>
+                    </article>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section" role="region" aria-label="Call to action">
+                <div class="cta-content">
+                    <h2>Ready to Create?</h2>
+                    <p>Join thousands of creators on UPAURA Studio</p>
+                    <button class="btn btn-glow btn-large" onclick="showPage('register'); return false;" aria-label="Get started for free">
+                        Get Started Free
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="page-login" class="page" aria-labelledby="login-title">
+            <div class="auth-container">
+                <div class="auth-visual">
+                    <div class="auth-glow"></div>
+                    <div class="auth-icon" aria-hidden="true">→</div>
+                </div>
+                <div class="auth-form-container">
+                    <h2 id="login-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Sign in to continue creating</p>
+                    <form id="loginForm" onsubmit="handleLogin(event)" aria-label="Login form">
+                        <div class="input-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" id="loginUsername" placeholder="Enter your username" required autocomplete="username">
+                            <span class="input-icon" aria-hidden="true">◉</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+                            <span class="input-icon" aria-hidden="true">◎</span>
+                        </div>
+                        <button type="submit" class="btn btn-glow btn-full" aria-label="Sign in to your account">
+                            Sign In
+                        </button>
+                    </form>
+                    <p class="auth-switch">
+                        New to UPAURA? <a href="#" onclick="showPage('register'); return false;">Create account</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Register Page -->
+        <section id="page-register" class="page" aria-labelledby="register-title">
+            <div class="auth-container">
+                <div class="auth-visual register-visual">
+                    <div class="auth-glow"></div>
+                    <div class="auth-icon" aria-hidden="true">+</div>
+                </div>
+                <div class="auth-form-container">
+                    <h2 id="register-title">Join UPAURA</h2>
+                    <p class="auth-subtitle">Start your creative journey today</p>
+                    <form id="registerForm" onsubmit="handleRegister(event)" aria-label="Registration form">
+                        <div class="input-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" id="registerUsername" placeholder="Choose a username" required autocomplete="username">
+                            <span class="input-icon" aria-hidden="true">◆</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" placeholder="Enter your email" required autocomplete="email">
+                            <span class="input-icon" aria-hidden="true">@</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" placeholder="Create a password" required minlength="6" autocomplete="new-password">
+                            <span class="input-icon" aria-hidden="true">☆</span>
+                        </div>
+                        <div class="input-group">
+                            <label for="registerConfirm">Confirm Password</label>
+                            <input type="password" id="registerConfirm" placeholder="Confirm your password" required autocomplete="new-password">
+                            <span class="input-icon" aria-hidden="true">★</span>
+                        </div>
+                        <button type="submit" class="btn btn-glow btn-full" aria-label="Create your account">
+                            Create Account
+                        </button>
+                    </form>
+                    <p class="auth-switch">
+                        Already have an account? <a href="#" onclick="showPage('login'); return false;">Sign in</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Page -->
+        <section id="page-upload" class="page" aria-labelledby="upload-title">
+            <div class="page-container">
+                <div class="page-header">
+                    <span class="page-icon" aria-hidden="true">↑</span>
+                    <h2 id="upload-title">Upload Music</h2>
+                    <p>Share your sound with the world</p>
+                </div>
+                <div class="upload-zone" id="uploadArea" role="button" tabindex="0" aria-label="Upload area - drag and drop audio files here">
+                    <div class="upload-glow"></div>
+                    <div class="upload-content">
+                        <div class="upload-icon" aria-hidden="true">♫</div>
+                        <h3>Drag & Drop</h3>
+                        <p>Drop your audio files here</p>
+                        <span class="upload-divider">or</span>
+                        <input type="file" id="fileInput" accept="audio/*" multiple onchange="handleFileSelect(event)" aria-label="Select audio files" hidden>
+                        <button class="btn btn-glass" onclick="document.getElementById('fileInput').click()" type="button" aria-label="Browse files">
+                            Browse Files
+                        </button>
+                        <p class="upload-formats">MP3, WAV, OGG, FLAC, M4A</p>
+                    </div>
+                </div>
+                <div id="uploadPreview" class="upload-preview" aria-live="polite"></div>
+                <form id="uploadForm" class="upload-form" onsubmit="handleUpload(event)" style="display:none;" aria-label="Upload form">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="songTitle">Title</label>
+                            <input type="text" id="songTitle" placeholder="Song title" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="songArtist">Artist</label>
+                            <input type="text" id="songArtist" placeholder="Artist name">
+                        </div>
+                        <div class="input-group">
+                            <label for="songGenre">Genre</label>
+                            <select id="songGenre">
+                                <option value="">Select genre</option>
+                                <option value="pop">Pop</option>
+                                <option value="rock">Rock</option>
+                                <option value="hip-hop">Hip Hop</option>
+                                <option value="jazz">Jazz</option>
+                                <option value="classical">Classical</option>
+                                <option value="electronic">Electronic</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn btn-glow btn-full" aria-label="Upload your song">
+                                Upload Song
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div id="uploadMessage" class="message" role="alert" aria-live="assertive"></div>
+            </div>
+        </section>
+
+        <!-- Analyze Page -->
+        <section id="page-analyze" class="page" aria-labelledby="analyze-title">
+            <div class="page-container">
+                <div class="page-header">
+                    <span class="page-icon" aria-hidden="true">◈</span>
+                    <h2 id="analyze-title">Analyze Audio</h2>
+                    <p>Discover the science behind your sound</p>
+                </div>
+                <div class="analyzer-container">
+                    <div class="song-selector">
+                        <label for="analyzeSongSelect">Select a song:</label>
+                        <select id="analyzeSongSelect" onchange="loadSongForAnalysis()" aria-label="Choose a song to analyze">
+                            <option value="">-- Choose a song from your library --</option>
+                        </select>
+                    </div>
+                    <div id="analysisResults" class="analysis-results" aria-live="polite">
+                        <div class="analysis-placeholder">
+                            <div class="placeholder-icon" aria-hidden="true">◈</div>
+                            <p>Select a song to unlock detailed audio analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaborate Page -->
+        <section id="page-collaborate" class="page" aria-labelledby="collab-title">
+            <div class="page-container">
+                <div class="page-header">
+                    <span class="page-icon" aria-hidden="true">◎</span>
+                    <h2 id="collab-title">Collaborate</h2>
+                    <p>Build music together, anywhere</p>
+                </div>
+                <div class="collab-container">
+                    <div class="song-selector">
+                        <label for="collabSongSelect">Select a song:</label>
+                        <select id="collabSongSelect" onchange="loadCollaborations()" aria-label="Choose a song to collaborate on">
+                            <option value="">-- Choose a song --</option>
+                        </select>
+                    </div>
+                    <div class="collab-workspace">
+                        <div class="collab-panel">
+                            <h3>Add Your Verse</h3>
+                            <textarea id="verseInput" placeholder="Write your lyrics, verses, or ideas..." aria-label="Write your verse or lyrics here"></textarea>
+                            <div class="collab-actions">
+                                <label for="verseType" class="sr-only">Verse type</label>
+                                <select id="verseType">
+                                    <option value="verse">Verse</option>
+                                    <option value="chorus">Chorus</option>
+                                    <option value="bridge">Bridge</option>
+                                    <option value="lyrics">Lyrics</option>
+                                </select>
+                                <button class="btn btn-glow" onclick="addVerse()" type="button" aria-label="Add your verse">Add Verse</button>
+                            </div>
+                        </div>
+                        <div class="collab-panel">
+                            <h3>Contributions</h3>
+                            <div id="collaborationsList" class="collaborations-list" aria-live="polite">
+                                <div class="placeholder-text">No collaborations yet. Start creating!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collabMessage" class="message" role="alert" aria-live="assertive"></div>
+            </div>
+        </section>
+
+        <!-- Beat Game Page -->
+        <section id="page-game" class="page" aria-labelledby="game-title">
+            <div class="page-container">
+                <div class="page-header">
+                    <span class="page-icon" aria-hidden="true">◉</span>
+                    <h2 id="game-title">Beat Lab</h2>
+                    <p>Create your signature rhythm</p>
+                </div>
+                <div class="game-container">
+                    <div class="game-info">
+                        <p>Click cells to create patterns. Press Play to hear your creation.</p>
+                        <div class="tempo-control">
+                            <label>Tempo: <span id="tempoValue">120</span> BPM</label>
+                            <input type="range" id="gameTempo" min="60" max="180" value="120" onchange="updateTempo()" aria-label="Adjust tempo">
+                        </div>
+                    </div>
+                    <div class="beat-grid" id="beatGrid" role="grid" aria-label="Beat pattern grid" tabindex="0"></div>
+                    <div class="game-controls" role="group" aria-label="Game controls">
+                        <button class="btn btn-glow" id="playBtn" onclick="playBeat()" type="button" aria-label="Play or stop beat">
+                            <span class="btn-icon" aria-hidden="true">▶</span> Play
+                        </button>
+                        <button class="btn btn-glass" onclick="stopBeat()" type="button" aria-label="Stop playback">Stop</button>
+                        <button class="btn btn-glass" onclick="clearGrid()" type="button" aria-label="Clear grid">Clear</button>
+                        <button class="btn btn-glass" onclick="savePattern()" type="button" aria-label="Save pattern">Save</button>
+                    </div>
+                    <div class="patterns-container">
+                        <h3>Saved Patterns</h3>
+                        <div id="patternsList" class="patterns-grid" aria-label="Saved beat patterns">
+                            <div class="placeholder-text">No saved patterns yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon" aria-hidden="true">⬡</span>
+                <span>UPAURA<span class="brand-accent">STUDIO</span></span>
+            </div>
+            <p class="footer-tagline">The Future of Music Creation</p>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="#" onclick="showPage('home'); return false;">Home</a>
+                <a href="#" onclick="showPage('register'); return false;">Join Now</a>
+            </nav>
+            <div class="footer-bottom">
+                <p>© 2025 UPAURA Studio. All rights reserved.</p>
+                <p class="creator-credit">Created with ❤️ by <span class="creator-name">upaura</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js" defer></script>
+</body>
+</html>
+

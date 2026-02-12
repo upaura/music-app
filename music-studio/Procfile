@@ -1,0 +1,9 @@
+# Music Studio Procfile
+
+# For Heroku deployment
+# Use gunicorn to run the Flask app
+web: gunicorn backend.app:app --bind 0.0.0.0:$PORT
+
+# Alternative: If serving frontend from backend in production
+# web: gunicorn "server:app" --bind 0.0.0.0:$PORT
+
